@@ -10,6 +10,7 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
+# The difference seems to be that if we are able to make our own linked list, then we know exactly what will get returned to us. It also makes conditional writing a bit easier (because it removes the need for several nested conditionals). While it seems like it'd be easier to control your own code if I write my own list methods, I think the downside is both time, as well as (maybe???) future implementation (it seems like at a certain point, when considering scalability, that there might be more issues further down the line that the built-in methods might not have)? But I'm really not sure
 from singly_linked_list import Node, LinkedList
 
 # BELOW IS WITH THE SINGLY LINKED LIST
