@@ -14,6 +14,10 @@ Stretch: What if you could only use instances of your Stack class to implement t
          What would that look like? How many Stacks would you need? Try it!
 """
 
+# Pretty much the same as the stack, but just in reverse orders for the dequeue
+
+
+
 from singly_linked_list import LinkedList
 
 class Queue:
