@@ -34,6 +34,11 @@ class LinkedList:
         
         data = self.tail.get_value()
         
+        # self.tail = None # This wasn't in the original, so it wasn't garbage collected
+                # Above actually broke everything... hmmmmm
+
+
+
         if self.head is self.tail:
             self.head = None
             self.tail = None
@@ -41,6 +46,7 @@ class LinkedList:
             current = self.head
             while current.get_next() != self.tail:
                 current = current.get_next()
+            # self.tail = None
             self.tail = current
         return data
 

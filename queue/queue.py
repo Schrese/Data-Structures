@@ -16,33 +16,67 @@ Stretch: What if you could only use instances of your Stack class to implement t
 
 # Pretty much the same as the stack, but just in reverse orders for the dequeue
 
+# For using the Stack class on the Queue, I would assume that I would need to do some reversal of orders and then use the stack methods
+
+# from singly_linked_list import LinkedList
+
+# class Stack:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = LinkedList()
+
+#     def __len__(self):
+#         # pass
+#         return self.size
+
+#     def push(self, value):
+#         # pass
+#         self.size += 1
+#         return self.storage.add_to_tail(value)
+
+#     def pop(self):
+#         # pass
+#         if self.size == 0:
+#             return None
+#         else:
+#             self.size -= 1
+#             return self.storage.remove_tail()
 
 
-
-
-from singly_linked_list import LinkedList
-
-class Queue:
-    def __init__(self):
-        self.size = 0
-        self.storage = LinkedList()
+# class Queue(Stack):
+#     def __init__(self, size, storage):
+#         super().__init__(size, storage)
     
-    def __len__(self):
-        # pass
-        return self.size
+#     def enqueue(self, value):
+#         storage_reverse = self.storage.reverse()
+#         print(storage_reverse)
 
-    def enqueue(self, value):
-        # pass
-        self.size += 1
-        return self.storage.add_to_tail(value)
 
-    def dequeue(self):
-        # pass
-        if self.size == 0:
-            return None
-        else:
-            self.size -= 1
-            return self.storage.remove_head()
+
+
+# from singly_linked_list import LinkedList
+
+# class Queue:
+#     def __init__(self):
+#         self.size = 0
+#         self.storage = LinkedList()
+    
+#     def __len__(self):
+#         # pass
+#         return self.size
+
+#     def enqueue(self, value):
+#         # pass
+#         self.size += 1
+#         return self.storage.add_to_tail(value)
+
+#     def dequeue(self):
+#         # pass
+#         if self.size == 0:
+#             return None
+#         else:
+#             self.size -= 1
+#             return self.storage.remove_head()
 
 
 # class Queue:

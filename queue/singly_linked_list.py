@@ -33,6 +33,9 @@ class LinkedList:
             return None
         
         data = self.tail.get_value()
+
+        # self.tail = None # This wasn't in the original, so it wasn't garbage collected
+        # Above actually broke everything... hmmmmm
         
         if self.head is self.tail:
             self.head = None
