@@ -27,6 +27,7 @@ class ListNode:
     """Rearranges this ListNode's previous and next pointers
     accordingly, effectively deleting this ListNode."""
     def delete(self):
+        print('can we get here?')
         if self.prev:
             self.prev.next = self.next
         if self.next:
@@ -90,10 +91,9 @@ class DoublyLinkedList:
             self.length -= 1
         else:
             self.head.delete()
-            self.length -= 1
-        
-        print(self.length)
-        print(self.head.value, "something")
+            self.length -= 1    
+        # print(self.length)
+        # print(self.head.value, "something")
 
     # def remove_from_head(self):
     #     # pass
@@ -178,7 +178,44 @@ class DoublyLinkedList:
     """Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List."""
     def move_to_front(self, node):
-        pass
+        # pass
+        # Sooo... if this is with the node, then can I even access the head and tail? I think I can only manipulate value, prev and next (I think???...)
+        # store node and the prev and next node's in variables
+
+        # store previous and next nodes
+        current_node = node
+        current_prev = node.prev.value
+        current_next = node.next.value
+        print('previous', self.delete(node))
+        print('something', self.head.value)
+        print('something else', self.tail.value)
+        # if the node's previous points to None, then on the move, i just need to return the current node?
+        # if the  
+
+        # removed_node = node
+        # old_head = self.head
+        # old_tail = self.tail
+        # if node is both the head and tail =>>> I don't think I need to check for this, actually
+
+        # if node.prev == None and node.next == None:
+            # remove the pointers
+        # if the node is just the tail =>>>>> I don't think I need to check for this either, actually
+            # set previous node's next pointer to None
+
+        # if the node is the tail
+        # if node.next == None:
+        #     # previous node must now point to None
+        #     removed_node.prev.next = None
+        #     # node's next must now point to the old head
+        #     # then do the insert_before the old head
+        #     node.insert_before(old_head)
+        # otherwise
+            # remove the node using the node's delete method
+        # node.delete()
+        #     # create new head with copy of the node using the insert_before method
+        # node.insert_before(old_head)
+        # print(node.prev.value)
+
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List."""
