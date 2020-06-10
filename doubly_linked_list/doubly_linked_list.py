@@ -78,12 +78,13 @@ class DoublyLinkedList:
     def remove_from_head(self):
         # pass
         old_head = self.head
-        if self.head.value == 1:
-            self.head.next = None
-            # self.tail.value = None
-            # print("hello")
-            # return None
-        elif self.tail.value == self.head.value:
+        # Sooooo.... turns out I don't need to check the value of the head... Interesting
+        # if self.head.value == 1: 
+        #     self.head.next = None
+        #     # self.tail.value = None
+        #     # print("hello")
+        #     # return None
+        if self.tail.value == self.head.value:
             self.tail.delete()
             self.head.delete()
             self.length -= 1
@@ -93,6 +94,25 @@ class DoublyLinkedList:
         
         print(self.length)
         print(self.head.value, "something")
+
+    # def remove_from_head(self):
+    #     # pass
+    #     old_head = self.head
+    #     if self.head.value == 1:
+    #         self.head.next = None
+    #         # self.tail.value = None
+    #         # print("hello")
+    #         # return None
+    #     elif self.tail.value == self.head.value:
+    #         self.tail.delete()
+    #         self.head.delete()
+    #         self.length -= 1
+    #     else:
+    #         self.head.delete()
+    #         self.length -= 1
+        
+    #     print(self.length)
+    #     print(self.head.value, "something")
 
     # Below was my original idea, trying something new above
         # old_head = self.head
@@ -142,6 +162,18 @@ class DoublyLinkedList:
     Returns the value of the removed Node."""
     def remove_from_tail(self):
         pass
+        # Store current tail
+        current_tail = self.tail
+        # check that the head and tail don't have the same values
+        if self.head.value == self.tail.value:
+            self.head.next = None
+            self.head.prev = None
+            # if they do, then there will no longer be a head or a tail, and the length will be 0
+        # otherwise delete the tail and decrement by 1
+        else:
+            self.tail.delete()
+            current_tail.prev.next = None
+            self.length -= 1 
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List."""
