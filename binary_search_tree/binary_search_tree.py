@@ -77,7 +77,19 @@ class BSTNode:
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        # pass
+        # # Store the current value of self
+        # current_self = self.value
+        # print(self.value)
+        # I think that the bottom-rightmost node will always hold the largest value
+        # if there is a node to the right of self
+        if self.right:
+            # set that node's value to self and re-run the method
+            return self.right.get_max()
+        # otherwise
+        else:
+            # return the value of self
+            return self.value
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
