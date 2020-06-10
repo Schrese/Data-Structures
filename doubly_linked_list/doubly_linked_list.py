@@ -86,12 +86,13 @@ class DoublyLinkedList:
         #     # print("hello")
         #     # return None
         if self.tail.value == self.head.value:
-            self.tail.delete()
-            self.head.delete()
-            self.length -= 1
+            self.head = None
+            self.tail = None
+            self.length = 0
         else:
             self.head.delete()
-            self.length -= 1    
+            self.length -= 1  
+            # self.head.prev = None  
         # print(self.length)
         # print(self.head.value, "something")
 
@@ -161,13 +162,13 @@ class DoublyLinkedList:
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
     def remove_from_tail(self):
-        pass
+        # pass
         # Store current tail
         current_tail = self.tail
         # check that the head and tail don't have the same values
         if self.head.value == self.tail.value:
-            self.head.next = None
-            self.head.prev = None
+            self.head = None
+            self.tail = None
             # if they do, then there will no longer be a head or a tail, and the length will be 0
         # otherwise delete the tail and decrement by 1
         else:
