@@ -38,13 +38,42 @@ class BSTNode:
             else:
                 # create a new node there
                 self.left = BSTNode(value)
+        # print('inserted', value)
 
 
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        # pass
+        # if the target is equal to the value of self
+        if target == self.value:
+            # return true
+            return True
+        # if the target is greater than the value of self
+        elif target > self.value:
+            # check to see if there's a node to the right of self
+            if self.right:
+                # if there is, then set self to that node and re-run this method
+                return self.right.contains(target)
+            # otherwise 
+            else:
+                # return False
+                return False
+        # if the target is less than the value of self
+        elif target < self.value:
+            # check to see if there's a node to the left
+            if self.left:
+                # if there is, then selt self to that node and re-run this method
+                return self.left.contains(target)
+            # otherwise
+            else:
+                # return False
+                return False
+        # otherwise, if there just isn't a node to check against,
+        else: 
+            # return false
+            return False
 
     # Return the maximum value found in the tree
     def get_max(self):
