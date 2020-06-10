@@ -93,7 +93,18 @@ class BSTNode:
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        # pass
+        # each time it's called, we want the value of self inserted into the function (turns out, you can't do this inline on the conditional)
+        fn(self.value)
+        # if there is a node to the right
+        if self.right:
+            # apply the for each method to get the fn to run for that node
+            self.right.for_each(fn)
+        # if there's a node to the left
+        if self.left:
+            # apply the for each method to get the fn to run for that node
+            self.left.for_each(fn)
+
 
     # Part 2 -----------------------
 
