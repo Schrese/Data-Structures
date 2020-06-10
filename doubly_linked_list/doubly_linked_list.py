@@ -27,7 +27,6 @@ class ListNode:
     """Rearranges this ListNode's previous and next pointers
     accordingly, effectively deleting this ListNode."""
     def delete(self):
-        print('can we get here?')
         if self.prev:
             self.prev.next = self.next
         if self.next:
@@ -49,174 +48,60 @@ class DoublyLinkedList:
     as the new head of the list. Don't forget to handle 
     the old head node's previous pointer accordingly."""
     def add_to_head(self, value):
-        # pass
-        # store the current head
+        #pass
+        # store old head
         old_head = self.head
+        # store old tail
         old_tail = self.tail
-        # create a new head node
-        new_head = ListNode(value, None, old_head)
-        # use insert before to but the new head in front of the old head
-        new_head.insert_before(old_head)
-        # update the head to be the new head node
-        # self.head = new_head => if this isn't in a conditional, it will fail for if there isn't a tail
-        # self.length += 1 => if this isn't in a conditional, it will fail for if there isn't a tail
-        if self.tail.value == self.head.value:
-            self.head = new_head
-            self.tail = new_head
-            self.length += 1
-        # increment the length of the list
-        else:
-            self.head = new_head
-            self.length += 1
-            
-        # print(self.length)
-        # print(self.head.value)
+        # create and store new node
+        # if there's no head:
+        if self.head == None:
+            # create new node
+            # set new node's next value to None
+            # set new node's prev value to None
+            new_node = ListNode(value, None, None)
 
+            # set new node to be head
+            self.head = new_node
+            # set new tail to be tail
+            self.tail = new_node
+            # update length
+            self.length = 1
+        # otherwise
+        else:
+            # create new node
+            # set new node's next value to old head node
+            # set new node's prev to point to None
+            new_node = ListNode(value, None, old_head)
+            # set new node to be head
+            self.head = new_node
+            # set old node's prev to point to new node
+            old_head.prev = new_node
+            # increment the length
+            self.length += 1
 
     """Removes the List's current head node, making the
     current head's next node the new head of the List.
     Returns the value of the removed Node."""
     def remove_from_head(self):
-        # pass
-        old_head = self.head
-        # Sooooo.... turns out I don't need to check the value of the head... Interesting
-        # if self.head.value == 1: 
-        #     self.head.next = None
-        #     # self.tail.value = None
-        #     # print("hello")
-        #     # return None
-        if self.tail.value == self.head.value:
-            self.head = None
-            self.tail = None
-            self.length = 0
-        else:
-            self.head.delete()
-            self.length -= 1  
-            # self.head.prev = None  
-        # print(self.length)
-        # print(self.head.value, "something")
-
-    # def remove_from_head(self):
-    #     # pass
-    #     old_head = self.head
-    #     if self.head.value == 1:
-    #         self.head.next = None
-    #         # self.tail.value = None
-    #         # print("hello")
-    #         # return None
-    #     elif self.tail.value == self.head.value:
-    #         self.tail.delete()
-    #         self.head.delete()
-    #         self.length -= 1
-    #     else:
-    #         self.head.delete()
-    #         self.length -= 1
-        
-    #     print(self.length)
-    #     print(self.head.value, "something")
-
-    # Below was my original idea, trying something new above
-        # old_head = self.head
-        # old_tail = self.tail
-        # print(self.head.value)
-        # print(self.tail.value)
-        # print(self.length)
-        # if self.head.value == 1 and self.tail.value == 1:
-        #     self.head = old_head
-        #     self.tail = old_tail
-        #     self.length = self.length
-        # else:
-        # # if self.head != 0:
-        #     self.head.delete()
-        #     self.length -= 1
-        #     return old_head
-        
+        pass
 
     """Wraps the given value in a ListNode and inserts it 
     as the new tail of the list. Don't forget to handle 
     the old tail node's next pointer accordingly."""
     def add_to_tail(self, value):
-        # pass
-        # Store the current head and tail
-        old_head = self.head
-        old_tail = self.tail
-        # Create a new node and set it to a new tail variable
-        new_tail = ListNode(value, old_tail, None)
-        # insert the new tail after the previous tail
-        new_tail.insert_after(old_tail)
-        # Interesting... I don't need a conditional here?
-        # conditional to check that the head and tail aren't the same
-        # if self.tail.value == 1:
-        #     self.head = new_tail
-        #     self.tail = new_tail
-        #     self.length += 1
-        # if they aren't, increment the length of the list, and set the new tail
-        # else:
-        self.tail = new_tail
-        self.length += 1
-
-
-
+        pass
 
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
     def remove_from_tail(self):
-        # pass
-        # Store current tail
-        current_tail = self.tail
-        # check that the head and tail don't have the same values
-        if self.head.value == self.tail.value:
-            self.head = None
-            self.tail = None
-            # if they do, then there will no longer be a head or a tail, and the length will be 0
-        # otherwise delete the tail and decrement by 1
-        else:
-            self.tail.delete()
-            current_tail.prev.next = None
-            self.length -= 1 
+        pass
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new head node of the List."""
     def move_to_front(self, node):
-        # pass
-        # Sooo... if this is with the node, then can I even access the head and tail? I think I can only manipulate value, prev and next (I think???...)
-        # store node and the prev and next node's in variables
-
-        # store previous and next nodes
-        current_node = node
-        current_prev = node.prev.value
-        current_next = node.next.value
-        print('previous', self.delete(node))
-        print('something', self.head.value)
-        print('something else', self.tail.value)
-        # if the node's previous points to None, then on the move, i just need to return the current node?
-        # if the  
-
-        # removed_node = node
-        # old_head = self.head
-        # old_tail = self.tail
-        # if node is both the head and tail =>>> I don't think I need to check for this, actually
-
-        # if node.prev == None and node.next == None:
-            # remove the pointers
-        # if the node is just the tail =>>>>> I don't think I need to check for this either, actually
-            # set previous node's next pointer to None
-
-        # if the node is the tail
-        # if node.next == None:
-        #     # previous node must now point to None
-        #     removed_node.prev.next = None
-        #     # node's next must now point to the old head
-        #     # then do the insert_before the old head
-        #     node.insert_before(old_head)
-        # otherwise
-            # remove the node using the node's delete method
-        # node.delete()
-        #     # create new head with copy of the node using the insert_before method
-        # node.insert_before(old_head)
-        # print(node.prev.value)
-
+        pass
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List."""
