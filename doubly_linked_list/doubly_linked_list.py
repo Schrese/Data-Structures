@@ -233,4 +233,20 @@ class DoublyLinkedList:
         
     """Returns the highest value currently in the list"""
     def get_max(self):
-        pass
+        # pass
+        # max_so_far = None
+        # but we don't really want None, because we can't compare that to a number
+        max_so_far = self.head.value
+        # we want to traverse until the "next" pointer is None
+        # can't use a for loop because we don't know the length
+        # so we need a while loop
+        # set current node
+        current_node = self.head
+        # while current_node.next != None:
+        # with above having the next property as a condition, we were stopping just before that last node, so when it got to 100, it said "ok, awesome, the next is None, so I don't need to compare that value to the max"
+        while current_node != None:
+            if  max_so_far < current_node.value:
+                max_so_far = current_node.value
+            current_node = current_node.next
+            # print(current_node.value)
+        return max_so_far
