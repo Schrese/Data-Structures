@@ -10,6 +10,7 @@ This part of the project comprises two days:
    on the BSTNode class.
 """
 from queue import Queue
+from stack import Stack
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -170,18 +171,39 @@ class BSTNode:
             print(node.value)
             # check if node has a node on the left
             if node.left:
-                # if so: re-run the function passing in the left node
+                # if so: add the node to the queue
                 q.enqueue(node.left)
             # check if the node has a node to the right
             if node.right:
-                # if so: re-run the function passing in the right node
+                # if so: add the node to the queue
                 q.enqueue(node.right)
         ##### things I forgot about: I can call the "len(q)" instead of "q.__len__()" because the underscores re-define the len method
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        # pass
+        # initialize a stack
+        s = []
+        # insert self into the stack using append method
+        s.append(node)
+        # while the length of the stack is not 0
+        while len(s) != 0:
+            # remove the node from the stack
+            node = s.pop()
+            # print the node
+            print(node.value)
+            # check if node has a node on the left
+            if node.left:
+                # if so: add the node to the queue
+                s.append(node.left)
+            # check if node has a node on the right
+            if node.right:
+                # if so: add the node to the queue
+                s.append(node.right)
+
+
+
 
     # Stretch Goals -------------------------
     # Note: Research may be required
